@@ -93,10 +93,19 @@ Hệ thống đã được nạp dữ liệu mẫu thực tế. Mật khẩu chu
 
 ---
 
-## 4. HƯỚNG DẪN CÀI ĐẶT VÀ KHỞI CHẠY CỤC BỘ
+## 4. HƯỚNG DẪN CÀI ĐẶT VÀ KHỞI CHẠY HỆ THỐNG
 
-### Bước 1: Khởi động Backend API
+### Cách 1: Khởi chạy 1-Click trên Windows (Tiện lợi nhất)
+Chỉ cần nhấp đúp chuột vào file:
+- **`run.bat`**: Tự động khởi động cả Backend API (`http://localhost:5000`) và Frontend UI (`http://localhost:5173`) trong một cửa sổ và tự động mở trình duyệt sau 5 giây.
+- **`start-monitoring.bat`**: Khởi chạy nhanh bộ đôi giám sát Prometheus (`http://localhost:9090`) & Grafana (`http://localhost:3000`).
+- **`stop-hrm.bat`**: Dừng nhanh toàn bộ các dịch vụ HRM đang chạy.
 
+---
+
+### Cách 2: Khởi chạy thủ công bằng dòng lệnh
+
+#### Bước 1: Khởi động Backend API
 ```bash
 cd backend
 npm install
@@ -109,10 +118,8 @@ npm run dev
 Server Backend sẽ lắng nghe tại: **`http://localhost:5000`**  
 Endpoint kiểm tra sức khỏe: **`http://localhost:5000/api/health`**
 
-### Bước 2: Khởi động Frontend UI
-
+#### Bước 2: Khởi động Frontend UI
 Mở một cửa sổ dòng lệnh thứ hai:
-
 ```bash
 cd frontend
 npm install
@@ -120,6 +127,23 @@ npm run dev
 ```
 
 Giao diện ứng dụng sẽ chạy tại: **`http://localhost:5173`**
+
+---
+
+### Cách 3: Triển khai hoàn chỉnh bằng Docker Compose
+Đảm bảo **Docker Desktop** đã được bật trên máy tính của bạn:
+
+```bash
+# Di chuyển vào đúng thư mục dự án:
+cd C:\Users\MTLA\.gemini\antigravity\scratch\hrm-system
+
+# Hoặc trên Git Bash:
+cd ~/.gemini/antigravity/scratch/hrm-system
+
+# Khởi động toàn bộ stack dịch vụ:
+docker compose up -d
+```
+Hoặc nhấp đúp chuột vào file [`start-docker.bat`](file:///C:/Users/MTLA/.gemini/antigravity/scratch/hrm-system/start-docker.bat).
 
 ---
 

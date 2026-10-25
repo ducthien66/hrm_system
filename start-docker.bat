@@ -3,8 +3,8 @@ title HRM Docker Services Launcher
 cd /d "%~dp0"
 
 echo ===================================================
-echo     KHOI DONG CAC DICH VU DOCKER HRM ENTERPRISE
-echo     (PostgreSQL 16, Prometheus, Grafana)
+echo     KHOI DONG DOCKER STACK - HRM ENTERPRISE
+echo     (Backend, Frontend, Prometheus, Grafana)
 echo ===================================================
 echo.
 
@@ -26,8 +26,9 @@ echo  CAC DICH VU DOCKER DA SAN SANG:
 echo ===================================================
 docker compose ps
 echo.
-echo  * Grafana Dashboard : http://localhost:3000 (admin / admin)
-echo  * Prometheus UI     : http://localhost:9090
-echo  * Database Postgres : Cổng 5432
+echo  * Frontend HRM Web    : http://localhost:5173
+echo  * Backend API         : http://localhost:5000
+echo  * Grafana Dashboard   : http://localhost:3000 (admin / admin)
+echo  * Prometheus UI       : http://localhost:9090
 echo.
 pause
