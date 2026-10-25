@@ -1,4 +1,5 @@
 @echo off
-title HRM Backend API
+title HRM Backend API (Port 5000)
 cd /d "%~dp0"
-npm run dev
+call npm.cmd run dev
+pause

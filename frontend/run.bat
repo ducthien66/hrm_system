@@ -1,4 +1,5 @@
 @echo off
-title HRM Frontend UI
+title HRM Frontend UI (Port 5173)
 cd /d "%~dp0"
-npm run dev
+call npm.cmd run dev
+pause
