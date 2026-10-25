@@ -5,7 +5,7 @@ import { connectDatabase } from './config/prisma.js';
 async function bootstrap() {
   await connectDatabase();
 
-  app.listen(config.port, () => {
+  app.listen(config.port, '0.0.0.0', () => {
     console.log(`🚀 HRM Server đang lắng nghe tại cổng http://localhost:${config.port}`);
     console.log(`🔗 API Base: http://localhost:${config.port}/api/v1`);
     console.log(`🩺 Health check: http://localhost:${config.port}/api/health`);

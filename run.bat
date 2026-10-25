@@ -16,13 +16,15 @@ echo   - Accountant  : accountant@hrm.com
 echo   - Nhan vien   : employee@hrm.com
 echo   [Mat khau     : Password@123]
 echo.
-echo  Dang khoi dong cac dich vu va mo trinh duyet...
+echo  Dang khoi dong he thong...
+echo  Trinh duyet se tu dong mo sau 5 giay.
 echo ===================================================
 echo.
 
-start "" "http://localhost:5173"
+start "" cmd /c "ping 127.0.0.1 -n 6 >nul && start http://localhost:5173"
 
 call npm.cmd run dev
+
 if %errorlevel% neq 0 (
     echo.
     echo [THONG BAO] Tien trinh da dung lai hoac gap su co.
