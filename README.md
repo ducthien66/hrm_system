@@ -26,7 +26,8 @@ Hệ thống Quản lý Nhân sự (Human Resource Management - HRM) được x�
 
 ### Testing & DevOps
 - **Kiểm thử tự động:** Vitest, Supertest (10/10 test cases passed).
-- **Containerization:** Dockerfile (Multi-stage build cho Frontend & Backend) & `docker-compose.yml` (PostgreSQL 16, pgAdmin).
+- **Giám sát & Quan sát hệ thống (Observability):** Prometheus & Grafana (Dashboard giám sát độ trễ API, HTTP Status Codes, Memory Heap & Event Loop Lag).
+- **Containerization:** Dockerfile (Multi-stage build cho Frontend & Backend) & `docker-compose.yml` (PostgreSQL 16, Prometheus, Grafana).
 
 ---
 
@@ -165,7 +166,22 @@ npm run test
 
 ---
 
-## 7. TRIỂN KHAI PRODUCTION VỚI DOCKER COMPOSE
+## 7. GIÁM SÁT HỆ THỐNG VỚI PROMETHEUS & GRAFANA
+
+Dự án đã tích hợp sẵn hệ thống quan sát toàn diện (**Enterprise Observability**):
+- **Metrics Endpoint:** `http://localhost:5000/metrics` (Chuẩn định dạng Prometheus).
+- **Prometheus Server:** `http://localhost:9090` (Tự động cào dữ liệu định kỳ mỗi 5 giây).
+- **Grafana Dashboard:** `http://localhost:3000` (Tài khoản: `admin` / `admin`).
+
+Dashboard HRM được nạp sẵn tự động (**Auto-provisioned**), bao gồm các bảng đo lường:
+1. **Lưu lượng truy cập API (Traffic):** Tần suất request thời gian thực theo HTTP Status code (`200 OK`, `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `500 Error`).
+2. **Độ trễ API (Latency):** Thời gian phản hồi trung bình, bách phân vị `p50` và `p95`.
+3. **Tài nguyên Node.js (Resources):** Phân bổ bộ nhớ Heap Used, Heap Total, RSS Memory và độ trễ Event Loop.
+4. **Phiên làm việc (Active Handles):** Giám sát số socket và timer đang hoạt động.
+
+---
+
+## 8. TRIỂN KHAI PRODUCTION VỚI DOCKER COMPOSE
 
 Dự án cung cấp sẵn cấu hình Docker Compose với PostgreSQL 16:
 

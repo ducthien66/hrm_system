@@ -20,6 +20,8 @@ import {
   UserCog,
   History,
   Settings,
+  Activity,
+  ExternalLink,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext.js';
 
@@ -173,6 +175,25 @@ export const Sidebar: React.FC = () => {
           );
         })}
       </nav>
+
+      {/* Grafana Monitoring Shortcut for Super Admin */}
+      {role === 'SUPER_ADMIN' && (
+        <div className="px-3 py-2 border-t border-slate-800">
+          <a
+            href="http://localhost:3000"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-semibold text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-all"
+            title="Mở Dashboard giám sát Grafana (Cổng 3000)"
+          >
+            <span className="flex items-center gap-2">
+              <Activity className="w-4 h-4 text-amber-400" />
+              <span>Grafana Monitor</span>
+            </span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+          </a>
+        </div>
+      )}
 
       {/* Role Indicator Footer */}
       <div className="p-4 border-t border-slate-800 bg-slate-950/40">
