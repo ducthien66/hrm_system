@@ -74,7 +74,7 @@
       "pluginVersion": "10.0.0",
       "targets": [
         {
-          "expr": "rate(hrm_http_request_duration_seconds_sum[1m]) / rate(hrm_http_request_duration_seconds_count[1m]) or vector(0)",
+          "expr": "(rate(hrm_http_request_duration_seconds_sum[1m]) / rate(hrm_http_request_duration_seconds_count[1m])) or vector(0)",
           "refId": "A"
         }
       ],
@@ -108,7 +108,7 @@
       "pluginVersion": "10.0.0",
       "targets": [
         {
-          "expr": "hrm_nodejs_heap_size_used_bytes / 1024 / 1024",
+          "expr": "(hrm_nodejs_nodejs_heap_size_used_bytes or hrm_nodejs_heap_size_used_bytes) / 1024 / 1024",
           "refId": "A"
         }
       ],
@@ -139,7 +139,7 @@
       "pluginVersion": "10.0.0",
       "targets": [
         {
-          "expr": "hrm_nodejs_active_handles_total or vector(0)",
+          "expr": "(hrm_nodejs_nodejs_active_handles_total or hrm_nodejs_active_handles_total) or vector(0)",
           "refId": "A"
         }
       ],
@@ -249,17 +249,17 @@
       },
       "targets": [
         {
-          "expr": "hrm_nodejs_heap_size_used_bytes",
+          "expr": "(hrm_nodejs_nodejs_heap_size_used_bytes or hrm_nodejs_heap_size_used_bytes)",
           "legendFormat": "Heap Used",
           "refId": "A"
         },
         {
-          "expr": "hrm_nodejs_heap_size_total_bytes",
+          "expr": "(hrm_nodejs_nodejs_heap_size_total_bytes or hrm_nodejs_heap_size_total_bytes)",
           "legendFormat": "Heap Total",
           "refId": "B"
         },
         {
-          "expr": "hrm_nodejs_resident_memory_bytes",
+          "expr": "(hrm_nodejs_process_resident_memory_bytes or hrm_nodejs_resident_memory_bytes)",
           "legendFormat": "Resident Memory (RSS)",
           "refId": "C"
         }
@@ -289,7 +289,7 @@
       },
       "targets": [
         {
-          "expr": "hrm_nodejs_eventloop_lag_seconds",
+          "expr": "(hrm_nodejs_nodejs_eventloop_lag_seconds or hrm_nodejs_eventloop_lag_seconds)",
           "legendFormat": "Event Loop Lag",
           "refId": "A"
         }

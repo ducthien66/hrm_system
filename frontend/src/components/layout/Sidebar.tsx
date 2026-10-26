@@ -180,7 +180,7 @@ export const Sidebar: React.FC = () => {
       {role === 'SUPER_ADMIN' && (
         <div className="px-3 py-2 border-t border-slate-800">
           <a
-            href="http://localhost:3000"
+            href="http://localhost:3000/d/hrm-system-observability/hrm-enterprise-system-observability-dashboard"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-semibold text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-all"
